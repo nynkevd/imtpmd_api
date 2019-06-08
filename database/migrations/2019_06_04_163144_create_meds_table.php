@@ -13,10 +13,11 @@ class CreatePillsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pills', function (Blueprint $table) {
-            $table->pillname('String');
-            $table->usename('String');
-            $table->milligrams('float');
+        Schema::create('meds', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->name('String');
+            $table->use('String');
+            $table->sort('String');
         });
     }
 
