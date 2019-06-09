@@ -24,12 +24,8 @@ class MedicationController extends Controller
           "sort" => $allMedicationSorts[$counter],
         ];
 
-        $thisMedicationInfo2 = [
-          $medication => $thisMedicationInfo,
-        ];
-
         $counter = $counter + 1;
-        array_push($medicationInfo, $thisMedicationInfo2);
+        $medicationInfo[$medication] = $thisMedicationInfo;
       }
 
 
