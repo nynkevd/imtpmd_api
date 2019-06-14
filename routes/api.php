@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/medication', 'MedicationController@getAllMedication');
+Route::middleware('auth:api')->get('/medication/{id}', 'MedicationController@getMedication');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
