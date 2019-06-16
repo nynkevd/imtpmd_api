@@ -8,20 +8,37 @@ use App\Medication;
 class MedicationController extends Controller
 {
     //
-    public function getMedication($id){
+    public function getAllMedication(){
+      $allMedication = Medication::pluck('name');
+
+      return $allMedication;
+    }
+
+    public function getMedicationById($id){
       $medicationId = Medication::where(['id' => $id])->pluck('id');
       $medicationName = Medication::where(['id' => $id])->pluck('name');
-      $medicationUse = Medication::where(['id' => $id])->pluck('use');
-      $medicationSort = Medication::where(['id' => $id])->pluck('sort');
 
-
-        $thisMedicationInfo = [
+        $thisMedication = [
           "id" => $medicationId[0],
           "name" => $medicationName[0],
-          "use" => $medicationUse[0],
-          "sort" => $medicationSort[0],
         ];
 
-      return $thisMedicationInfo;
+      return $thisMedication;
+    }
+
+    public function getMedicationInfoByName($name){
+      $medicationId = Medication::where(['name' => $name])->pluck('id');
+      $medicationName = Medication::where(['name' => $name])->pluck('name');
+      $medicationUse = Medication::where(['name' => $name])->pluck('use');
+      $medicationSort = Medication::where(['name' => $name])->pluck('sort');
+
+      $thisMedicationInfo = [
+        "id" => $medicationId[0],
+        "name" => $medicationName[0],
+        "use" => $medicationUse[0],
+        "sort" => $medicationSort[0],
+      ];
+
+    return $thisMedicationInfo;
     }
 }

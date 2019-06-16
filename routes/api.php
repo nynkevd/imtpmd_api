@@ -13,7 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/medication/{id}', 'MedicationController@getMedication');
+Route::middleware('auth:api')->get('/allmedication', 'MedicationController@getAllMedication');
+Route::middleware('auth:api')->get('/medication/{id}', 'MedicationController@getMedicationById');
+Route::middleware('auth:api')->get('/medicationinfo/{name}', 'MedicationController@getMedicationInfoByName');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
