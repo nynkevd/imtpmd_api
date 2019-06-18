@@ -14,6 +14,16 @@ class MedicationController extends Controller
       return $allMedication;
     }
 
+    public function getMedicationName($id){
+      $medicationName = Medication::where(['id' => $id])->pluck('name');
+
+      $thisMedicationName = [
+        "name" => $medicationName[0],
+      ];
+
+      return $thisMedicationName;
+    }
+
     public function getMedicationInfoByName($name){
       $medicationId = Medication::where(['name' => $name])->pluck('id');
       $medicationName = Medication::where(['name' => $name])->pluck('name');
