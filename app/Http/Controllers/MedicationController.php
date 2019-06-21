@@ -39,4 +39,8 @@ class MedicationController extends Controller
 
     return $thisMedicationInfo;
     }
+
+    public function getMedicationCount(){
+      return Medication::count();
+    }
 }
